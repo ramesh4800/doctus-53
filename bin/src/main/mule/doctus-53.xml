@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="64dc8876-56fa-407f-8b19-9677b8acbff5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="doctus-53Flow" doc:id="7cfd6807-05e2-47d9-9f5f-38b37b735051" >
+		<http:listener doc:name="Listener" doc:id="06e2fa15-1b38-4fb9-8f51-978d4f57c163" config-ref="HTTP_Listener_config" path="/demo"/>
+		<logger level="INFO" doc:name="Logger" doc:id="71c1b2d0-b3dc-4352-b9c3-2a8aaa821336" />
+		<set-payload value="success-demo" doc:name="Set Payload" doc:id="2aed63b5-5e78-4b72-9868-e273548d3935" />
+		<logger level="INFO" doc:name="Logger" doc:id="4bc0fd9a-0cf4-4e0f-b5c5-9ee99c42b61b" />
+	</flow>
+</mule>
